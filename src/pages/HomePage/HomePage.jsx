@@ -1,22 +1,15 @@
-import css from './HomePage.module.css';
 import MovieList from 'components/MovieList/MovieList';
 import Error from 'components/Error/Error';
-import { useCustomContext } from 'components/Context/Context';
 import { useState, useEffect } from 'react';
-import Notiflix, { Notify } from 'notiflix';
+import { Notify } from 'notiflix';
 import Loader from 'components/Loader/Loader';
 import { getPopularMovies } from 'services/movies-api';
-
-const STATUS = {
-	IDLE: 'idle',
-	PENDING: 'pending',
-	RESOLVED: 'resolved',
-	REJECTED: 'rejected',
-};
+import STATUS from 'services/config';
 
 const HomePage = () => {
 	const [status, setStatus] = useState(STATUS.IDLE);
-	const { popularMovies, setPopularMovies } = useCustomContext();
+	// const { popularMovies, setPopularMovies } = useCustomContext();
+	const [popularMovies, setPopularMovies] = useState([]);
 
 	useEffect(() => {
 		popularMovies && setStatus(STATUS.RESOLVED);
@@ -31,7 +24,7 @@ const HomePage = () => {
 				setPopularMovies(movies);
 				setStatus(STATUS.RESOLVED);
 			} catch (error) {
-				Notiflix.Notify.failure('Failed to load list of popular movies...');
+				Notify.failure('Failed to load list of popular movies...');
 				setStatus(STATUS.REJECTED);
 			}
 		};
