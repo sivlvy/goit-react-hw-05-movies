@@ -17,11 +17,11 @@ const Cast = () => {
 		setStatus(STATUS.PENDING);
 
 		const fetchCast = async () => {
-			const actors = await getCurrentCast(movieId);
-
+			const response = await getCurrentCast(movieId);
+			console.log(response);
 			try {
 				setStatus(STATUS.RESOLVED);
-				setCast(actors);
+				setCast(response.cast);
 			} catch (error) {
 				setStatus(STATUS.REJECTED);
 				Notify.failure('Oops something went wrong! Try reloading the page');

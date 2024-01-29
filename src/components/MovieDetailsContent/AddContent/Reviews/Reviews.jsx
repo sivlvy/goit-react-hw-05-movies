@@ -1,5 +1,5 @@
 import css from './Reviews.module.css';
-import ReviewsList from './ReviewsList';
+import ReviewList from './ReviewsList';
 
 import Loader from 'components/Loader/Loader';
 import Error from 'components/Error/Error';
@@ -21,7 +21,6 @@ const Reviews = () => {
 		const fetchReviews = async () => {
 			try {
 				const reviews = await getCurrentReviews(movieId);
-
 				setStatus(STATUS.RESOLVED);
 				setReviews(reviews);
 			} catch (error) {
@@ -34,7 +33,7 @@ const Reviews = () => {
 
 	return (
 		<>
-			{status === STATUS.RESOLVED && <ReviewsList reviews={reviews} />}
+			{status === STATUS.RESOLVED && <ReviewList reviews={reviews} />}
 			{status === STATUS.PENDING && <Loader />}
 			{status === STATUS.REJECTED && (
 				<Error message="Load failed reviews of movie" />

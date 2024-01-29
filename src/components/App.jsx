@@ -1,15 +1,16 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Header from './Header/Header';
-import BackBtn from './BackBtn/BackBtn';
-import MovieItem from './MovieList/MovieItem/MovieItem';
+import { lazy } from 'react';
 
-import MovieDetails from 'pages/MovieDetails/MovieDetails';
-import MoviesPage from 'pages/MoviesPage/MoviesPage';
-import Cast from './MovieDetailsContent/AddContent/Cast/Cast';
-import HomePage from 'pages/HomePage/HomePage';
 import SharedLayout from './SharedLayout/SharedLayout';
-import Reviews from './MovieDetailsContent/AddContent/Reviews/Reviews';
-import CastList from './MovieDetailsContent/AddContent/Cast/CastList';
+
+const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails'));
+const MoviesPage = lazy(() => import('pages/MoviesPage/MoviesPage'));
+const Cast = lazy(() => import('./MovieDetailsContent/AddContent/Cast/Cast'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+// const SharedLayout = lazy(() => import('./SharedLayout/SharedLayout'));
+const Reviews = lazy(() =>
+	import('./MovieDetailsContent/AddContent/Reviews/Reviews')
+);
 const App = () => {
 	return (
 		<Routes>
