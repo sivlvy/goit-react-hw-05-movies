@@ -1,4 +1,3 @@
-import css from './Reviews.module.css';
 import ReviewList from './ReviewsList';
 
 import Loader from 'components/Loader/Loader';

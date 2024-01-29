@@ -1,4 +1,3 @@
-import { Formik, Form, Field } from 'formik';
 import { Notify } from 'notiflix';
 import { BiSearchAlt } from 'react-icons/bi';
 import { useEffect, useState } from 'react';

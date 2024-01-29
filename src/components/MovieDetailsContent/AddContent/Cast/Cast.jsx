@@ -1,4 +1,3 @@
-import css from './Cast.module.css';
 import STATUS from 'services/config';
 import { Notify } from 'notiflix';
 import { useEffect, useState } from 'react';
