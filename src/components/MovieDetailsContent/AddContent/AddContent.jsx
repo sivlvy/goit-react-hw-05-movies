@@ -5,7 +5,7 @@ import Loader from 'components/Loader/Loader';
 
 const AddContent = () => {
 	const location = useLocation();
-	const comeBack = location.state.from ?? '/';
+	const comeBack = (location.state && location.state.from) ? location.state.from : '/';;
 
 	return (
 		<div className={css.add_content_wrap}>

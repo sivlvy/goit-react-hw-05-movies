@@ -4,7 +4,7 @@ import css from './BackBtn.module.css';
 
 const BackBtn = () => {
 	const location = useLocation();
-	const comeback = location.state.from ?? '/';
+	const comeback = (location.state && location.state.from) ? location.state.from : '/';
 	return (
 		<Link to={comeback} className={css.movie_goback_btn}>
 			Go back
